@@ -11,6 +11,7 @@ int main(int argc, char **argv) {
         printf("%d\n", i);
         count = count + 1;
     }
+    count = count +20;
     printf("%d\n", count);
     return 0;
 }
