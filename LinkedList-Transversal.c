@@ -8,10 +8,17 @@ struct Node{ // An object of the type struct Node is allocated a memory.
     struct Node *next;
 };
 
-void ListTransversal(struct Node *address){
+void ListTransversal(struct Node *address){ // Using while() loop
     while(address != NULL){
         printf("Elements = %d\n", address->data);
         address = address->next;
+    }
+}
+void ListTransversal_2(struct Node *address){ // Using for() Loop
+    struct Node *c;
+    for(c = address; c!=NULL; c= c->next)
+    {
+        printf("Elements = %d\n", address->data);
     }
 }
 
@@ -31,7 +38,7 @@ int main () {
     third->data = 30;
     third->next = NULL;
 
-    ListTransversal(head);// function call with address of head as a parameter
+    ListTransversal_2(head);// function call with address of head as a parameter
 
     return 0;
 }
