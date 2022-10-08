@@ -60,4 +60,4 @@ void swap2(int x, int y) // Call by Value
     x = y;
     y = t;
 }
-// Here if we call swap2 functions from the main(), then print the value of x there, value of x wont be swapped. This is because of Call by Value as the copies of x and y are sent.
+// Here if we call swap2 functions from the main(), then print the value of x there, value of x wont be swapped. This is because of Call by Value as the copies of x and y are sent

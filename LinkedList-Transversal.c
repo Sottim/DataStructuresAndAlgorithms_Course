@@ -16,19 +16,20 @@ void ListTransversal(struct Node *address){ // Using while() loop
 }
 void ListTransversal_2(struct Node *address){ // Using for() Loop
     struct Node *c;
+    printf("Elements are: ");
     for(c = address; c!=NULL; c= c->next)
     {
-        printf("Elements = %d\n", c->data);
+        printf("%d,", c->data);
     }
 }
 
 int main () {
-    struct Node *head = NULL; // Initialize address of all is declared as NULL
+    struct Node *head = NULL; // Initially the address of all is declared as NULL
     struct Node *second = NULL;
     struct Node *third = NULL;
 
     head = (struct Node*)(malloc(sizeof(struct Node*)));
-    second = (struct Node*)(malloc(sizeof (struct Node))); //malloc() allocates the specific size in the memory and second finally would contain the address of the second node.
+    second = (struct Node*)(malloc(sizeof (struct Node))); //malloc() allocates the specific size in the memory and second finally would contain the address of the second node in the memory.
     third = (struct Node*)(malloc(sizeof(struct Node)));
 
     head-> data = 10; // the data stored in the first node is 10
@@ -39,7 +40,8 @@ int main () {
     third->next = NULL;
 
     ListTransversal_2(head);// function call with address of head as a parameter
-    ListTransversal(head);
+    //OR
+    //ListTransversal(head);
 
     return 0;
 }
