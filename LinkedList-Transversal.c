@@ -18,7 +18,7 @@ void ListTransversal_2(struct Node *address){ // Using for() Loop
     struct Node *c;
     for(c = address; c!=NULL; c= c->next)
     {
-        printf("Elements = %d\n", address->data);
+        printf("Elements = %d\n", c->data);
     }
 }
 
@@ -39,6 +39,7 @@ int main () {
     third->next = NULL;
 
     ListTransversal_2(head);// function call with address of head as a parameter
+    ListTransversal(head);
 
     return 0;
 }

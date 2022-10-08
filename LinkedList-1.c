@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <stdio.h> // Simple Linked list with 3 Nodes.
 #include <stdlib.h>
 //https://stackoverflow.com/questions/69975191/how-does-struct-node-ptr-mallocsizeofptr-work
 struct Node{ // An object of the type struct Node is allocated a memory.
