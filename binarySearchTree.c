@@ -60,6 +60,32 @@ void inorder(nodeaddress rootNode){
         }
     }
 }
+void preorder(nodeaddress rootNode){
+    if(rootNode != NULL){
+        if(rootNode){
+            printf("%d", rootNode->value);
+        }
+        if(rootNode->left) {
+            preorder(rootNode->left);
+        }
+        if(rootNode->right) {
+            preorder(rootNode->right);
+        }
+    }
+}
+void postorder(nodeaddress rootNode){
+    if(rootNode != NULL){
+        if(rootNode->left) {
+            postorder(rootNode->left);
+        }
+        if(rootNode->right) {
+            postorder(rootNode->right);
+        }
+        if(rootNode){
+            printf("%d", rootNode->value);
+        }  
+    }
+}
 
 int main(){
     //printf("Test run 0 ");
@@ -86,6 +112,8 @@ int main(){
 
     inorder(Node);
     //printf("Test run 2 ");
+    preorder(Node);
+    postorder(Node);
     
     return 0;
 }
