@@ -34,86 +34,46 @@ nodeaddress insertNode(nodeaddress rootNode, int number){
     return rootNode;
 }
 
-nodeaddress searchNode(nodeaddress search, int number){
-    if(search == NULL){
-        return NULL;
-    }
-    if(number > search->value){
-        search->right = searchNode(search->right, number);
-    }
-    else if(number < search->value){
-        search->left = searchNode(search->left, number);
-    }
-    return search;
-}
-
 void inorder(nodeaddress rootNode){
     if(rootNode != NULL){
-        if(rootNode->left) {
-            inorder(rootNode->left);
-        }
-        if(rootNode){
-            printf("%d", rootNode->value);
-        }
-        if(rootNode->right) {
-            inorder(rootNode->right);
-        }
+        inorder(rootNode->left);
+        printf("%d\n", rootNode->value);
+        inorder(rootNode->right); 
     }
 }
 void preorder(nodeaddress rootNode){
     if(rootNode != NULL){
-        if(rootNode){
-            printf("%d", rootNode->value);
-        }
-        if(rootNode->left) {
-            preorder(rootNode->left);
-        }
-        if(rootNode->right) {
-            preorder(rootNode->right);
-        }
+        printf("%d\n", rootNode->value);
+        preorder(rootNode->left);
+        preorder(rootNode->right);
     }
 }
 void postorder(nodeaddress rootNode){
     if(rootNode != NULL){
-        if(rootNode->left) {
-            postorder(rootNode->left);
-        }
-        if(rootNode->right) {
-            postorder(rootNode->right);
-        }
-        if(rootNode){
-            printf("%d", rootNode->value);
-        }  
+        postorder(rootNode->left);
+        postorder(rootNode->right);
+        printf("%d\n", rootNode->value);
     }
 }
 
 int main(){
-    //printf("Test run 0 ");
-    nodeaddress Node = NULL;  // It can be written struct node *Node but I have already typedef struct node to *nodeaddress
-    Node = insertNode(Node, 30);  //                30
-    insertNode(Node, 20);         //          20         40
-    //printf("Test run 1");
-    insertNode(Node, 40);         //      10     25   35     50
-    insertNode(Node, 10);
-    insertNode(Node, 25);
-    insertNode(Node, 35);
-    insertNode(Node, 50);
+    nodeaddress Root = NULL;  // It can be written struct node *Node but I have already typedef struct node to *nodeaddress
     
-    
-    nodeaddress searchResult = NULL;
-    //searchResult = malloc(sizeof(nodeaddress));
-    searchResult = searchNode(Node, 35);
-    if(searchResult == NULL){
-        printf("The element doesnot exit ! ");
-    }
-    else{
-        printf("The element exits ! ");
+    int n; int val;
+    printf("Enter the number of nodes: ");
+    scanf("%d", &n);
+    printf("Enter the values: \n");
+    for(int i=1; i<=n; i++){
+        scanf("%d", &val);
+        Root = insertNode(Root, val);
     }
 
-    inorder(Node);
-    //printf("Test run 2 ");
-    preorder(Node);
-    postorder(Node);
+    printf("printing In-order \n");
+    inorder(Root);
+    printf("Printing Pre-order \n");
+    preorder(Root);
+    printf("Printing Post-order \n");
+    postorder(Root);
     
     return 0;
 }
